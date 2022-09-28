@@ -1,0 +1,21 @@
+---
+- name: Play_1
+  hosts: all 
+  tasks:
+  - name: Install git
+    become: true
+    apt:
+      name: ['git','nginx','memcached','jq','curl'] 
+      state: present
+      update_cache: yes
+    when:
+    - ansible_distribution == "Ubuntu"
+    - ansible_pkg_mgr == "apt"
+    register: result
+    
+  - name: Print debug message
+    debug:
+      var: result
+      verbosity: 0 
+    when: result is changed  
+    

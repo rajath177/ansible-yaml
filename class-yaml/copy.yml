@@ -1,0 +1,8 @@
+---
+- name: copy files with playbook
+  hosts: all
+  tasks:        
+  - name: copy files 1,2 and 3
+    copy:    
+      src: /home/ubuntu/test
+      dest: /home/ubuntu

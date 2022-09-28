@@ -1,0 +1,16 @@
+---
+- name: Play_1
+  hosts: all
+  tasks:
+  - name: Install git
+    become: true
+    apt:
+      name: "{{ item }}"
+      state: present
+      update_cache: yes
+    with_items:
+    - git
+    - nginx
+    - memcached
+    - jq
+    - curl

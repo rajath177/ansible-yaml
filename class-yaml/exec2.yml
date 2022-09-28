@@ -1,0 +1,22 @@
+---
+- name: Play_1
+  hosts: all
+  tasks:
+  - name: Install git
+    become: true
+    apt:
+      name: ['git','nginx','memcached','jq','curl'] 
+      state: present
+      update_cache: yes
+    when:
+    - ansible_distribution == "Ubuntu"
+    - ansible_pkg_mgr == "apt"
+ 
+  - name: Install git
+    become: true
+    apt:
+      name: ['git','nginx','memcached','jq','curl']
+      state: present
+      update_cache: yes
+    when:
+    - ansible_distribution == "RedHat"

@@ -1,0 +1,16 @@
+---
+ - name: Playbook to install software
+   hosts: all
+   become: true
+
+   tasks:
+   - name: install git
+     apt:
+       name: git
+       state: present
+       update_cache: yes
+   - name: install jq
+     apt:
+       name: jq
+       state: latest
+       update_cache: yes

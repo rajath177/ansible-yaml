@@ -14,7 +14,7 @@
  
   - name: Install git
     become: true
-    apt:
+    yum:
       name: ['git','nginx','memcached','jq','curl']
       state: present
       update_cache: yes
